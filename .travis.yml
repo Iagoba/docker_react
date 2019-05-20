@@ -6,7 +6,7 @@ before_install:
   - docker build -t jeykow/docker_react -f Dockerfile.dev .
 
 script:
-  - docker run jeykow/docker_react npm run test -- --coverage
+  - docker run -e CI=true jeykow/docker_react npm run test -- --watchAll=false
 
 deploy:
   provider: elasticbeanstalk
